@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Transiciones" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +20,67 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MDb-7A-sBs">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="587"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jKT-q9-XJh">
+                                        <rect key="frame" x="141.5" y="203.5" width="91" height="179.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="150"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="jKT-q9-XJh" firstAttribute="centerY" secondItem="MDb-7A-sBs" secondAttribute="centerY" id="Scx-Ov-zND"/>
+                                    <constraint firstItem="jKT-q9-XJh" firstAttribute="centerX" secondItem="MDb-7A-sBs" secondAttribute="centerX" id="xoe-h6-fYT"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Y2P-rV-32m" appends="YES" id="H7H-qN-t1m"/>
+                                </connections>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11i-GA-krf">
+                                <rect key="frame" x="151.5" y="629" width="71" height="30"/>
+                                <state key="normal" title="Transicion"/>
+                                <connections>
+                                    <action selector="doTapTransicion:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vLz-Ah-xfC"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="11i-GA-krf" secondAttribute="bottom" constant="8" id="Cf4-g1-LLk"/>
+                            <constraint firstItem="MDb-7A-sBs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="E4m-yZ-QJg"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="MDb-7A-sBs" secondAttribute="bottom" constant="80" id="gf0-nw-edf"/>
+                            <constraint firstAttribute="trailing" secondItem="MDb-7A-sBs" secondAttribute="trailing" id="ieC-NV-fUY"/>
+                            <constraint firstItem="11i-GA-krf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tAg-C7-Clc"/>
+                            <constraint firstItem="MDb-7A-sBs" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="yFD-oP-LcS"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="gBY-mv-edt" appends="YES" id="yAB-1s-lZJ"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="lblNumero" destination="jKT-q9-XJh" id="CGa-7N-9Nk"/>
+                        <outlet property="vwContenedorNumero" destination="MDb-7A-sBs" id="9ET-2H-kQh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="up" id="gBY-mv-edt" userLabel="SwipeUp vwContenedor">
+                    <connections>
+                        <action selector="doSwipeUpContenedor:" destination="BYZ-38-t0r" id="3AQ-d0-cby"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="down" id="Y2P-rV-32m" userLabel="SwipeDown vwContenedor">
+                    <connections>
+                        <action selector="doSwipeDownContenedor:" destination="BYZ-38-t0r" id="Ia5-EP-XfX"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="123.68815592203899"/>
         </scene>
     </scenes>
 </document>
